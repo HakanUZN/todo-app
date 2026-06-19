@@ -1,0 +1,160 @@
+/* ------------------------------------------------------------------
+   Görev Defteri — tasarım token'ları
+------------------------------------------------------------------- */
+:root {
+  --bg: #f4f6fb;
+  --surface: #ffffff;
+  --ink: #1c2333;
+  --ink-soft: #5b6478;
+  --border: #e1e5f0;
+  --accent: #5b4dff;
+  --accent-dark: #4338ca;
+  --amber: #ffb648;
+  --coral: #ff6b5b;
+  --mint: #36c29a;
+  --ring-bg: #e4e8f2;
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.app-shell {
+  min-height: 100vh;
+}
+
+.app-header__eyebrow {
+  font-family: var(--font-display);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.app-header__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.5rem, 1rem + 2vw, 2.1rem);
+  color: var(--ink);
+}
+
+.card {
+  background-color: var(--surface);
+  border-radius: 1rem;
+}
+
+.task-form__heading {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+
+.task-form .form-control,
+.task-form .form-select,
+.modal-content .form-control,
+.modal-content .form-select {
+  border-radius: 0.65rem;
+  border: 1px solid var(--border);
+}
+
+.task-form .form-control:focus,
+.task-form .form-select:focus,
+.modal-content .form-control:focus,
+.modal-content .form-select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 0.2rem rgba(91, 77, 255, 0.15);
+}
+
+.btn-primary {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  border-radius: 0.65rem;
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--accent-dark);
+  border-color: var(--accent-dark);
+}
+
+.filter-btn {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--ink-soft);
+  border-radius: 999px;
+  padding: 0.3rem 0.95rem;
+  font-size: 0.85rem;
+}
+.filter-btn.active {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+}
+
+.task-item {
+  background: var(--surface);
+  border-left: 4px solid transparent;
+  padding: 0.85rem 1rem;
+}
+.task-item.priority-high { border-left-color: var(--coral); }
+.task-item.priority-medium { border-left-color: var(--amber); }
+.task-item.priority-low { border-left-color: var(--mint); }
+
+.task-item.is-done { opacity: 0.55; }
+.task-item.is-done .task-item__title { text-decoration: line-through; }
+
+.task-item__check {
+  width: 1.15em;
+  height: 1.15em;
+}
+
+.task-item__title {
+  font-weight: 600;
+  color: var(--ink);
+}
+.task-item__desc {
+  font-size: 0.875rem;
+  color: var(--ink-soft);
+}
+
+.priority-badge {
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+.priority-badge--high { background-color: rgba(255, 107, 91, 0.15); color: #c8412f; }
+.priority-badge--medium { background-color: rgba(255, 182, 72, 0.22); color: #9c6b0e; }
+.priority-badge--low { background-color: rgba(54, 194, 154, 0.16); color: #1f8f6e; }
+
+.empty-state__icon {
+  font-size: 2rem;
+  color: var(--mint);
+}
+
+.progress-ring__bg { stroke: var(--ring-bg); }
+.progress-ring__fg { stroke: var(--accent); transition: stroke-dashoffset 0.4s ease; }
+.progress-ring__pct {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  fill: var(--ink);
+}
+.progress-ring__label {
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  fill: var(--ink-soft);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progress-ring__fg { transition: none; }
+}
